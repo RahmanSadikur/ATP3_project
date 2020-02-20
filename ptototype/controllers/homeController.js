@@ -11,9 +11,9 @@ router.post('/login', function(req, res){
 
 	
 });
-router.get('/', function(req, res){
+router.get('/index', function(req, res){
 
-	res.send("wellcome Mr Guest")
+	res.render('home/index')
 });
 
 
