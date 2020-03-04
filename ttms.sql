@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2020 at 11:33 AM
+-- Generation Time: Mar 04, 2020 at 08:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -99,7 +99,8 @@ CREATE TABLE `package` (
   `branchid` int(11) NOT NULL,
   `hotelid` int(11) NOT NULL,
   `transportid` int(11) NOT NULL,
-  `duration` varchar(50) NOT NULL,
+  `checkindate` datetime NOT NULL,
+  `checkoutdate` datetime NOT NULL,
   `totalcost` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
