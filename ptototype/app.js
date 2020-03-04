@@ -1,6 +1,7 @@
 //declaration
 var express = require('express');
 var login = require('./controllers/loginController');
+var register = require('./controllers/registerController');
 var home = require('./controllers/homeController');
 var logout = require('./controllers/logoutController');
 var branch = require('./controllers/branchController');
@@ -14,6 +15,7 @@ var payment = require('./controllers/paymentController');
 var place = require('./controllers/placeController');
 var profile = require('./controllers/profileController');
 var tour = require('./controllers/tourController');
+var guest=require('./controllers/guestController');
 var transport = require('./controllers/transportController');
 var ejs = require('ejs');
 var exSession = require('express-session');
@@ -28,7 +30,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(exSession({secret: 'my top secret value', saveUninitialized: true, resave: false}));
 app.use(cookieParser());
+app.use('/css', express.static('css'));
+app.use('/js', express.static('jquery'));
 
+
+app.use('/register',register);
+app.use('/guest', guest);
 app.use('/login', login);
 app.use('/customer', customer);
 app.use('/branch', branch);
@@ -44,7 +51,7 @@ app.use('/profile', profile);
 app.use('/tour', tour);
 app.use('/transport', transport);
 
-app.use('/',home);
+app.use('/',guest);
 //routes
 
 //server startup
